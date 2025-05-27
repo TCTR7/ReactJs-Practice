@@ -1,0 +1,50 @@
+{
+  "home": {
+    "title": "Trung tâm Trình diễn Tính năng",
+    "description": "Khám phá các tính năng React tôi đã xây dựng trong quá trình học tập.",
+    "viewDetail": "Xem chi tiết",
+    "footer": "Được xây dựng với ❤️ bởi bạn bằng React + TailwindCSS"
+  },
+  "features": {
+    "/todo": {
+      "title": "📝 Ứng dụng Todo",
+      "description": "Quản lý công việc với đầy đủ chức năng CRUD."
+    },
+    "/upload": {
+      "title": "⬆️ Tải lên File phân đoạn",
+      "description": "Tải lên file lớn với kéo thả và theo dõi tiến trình."
+    },
+    "/form": {
+      "title": "📬 Xác thực Biểu mẫu",
+      "description": "Xác thực biểu mẫu sử dụng React Hook Form và Yup."
+    },
+    "/charts": {
+      "title": "📊 Bảng điều khiển Biểu đồ",
+      "description": "Hiển thị biểu đồ sử dụng thư viện Recharts."
+    },
+    "/hooks": {
+      "title": "🧠 Thư viện Hook tùy chỉnh",
+      "description": "Tạo thư viện hook tùy chỉnh có thể tái sử dụng."
+    },
+    "/debounce-throttle": {
+      "title": "🔁 Debounce & Throttle",
+      "description": "Tối ưu hóa xử lý đầu vào và sự kiện."
+    },
+    "/modal-manager": {
+      "title": "🧭 Quản lý Modal (Portal)",
+      "description": "Hiển thị modal động sử dụng React Portal."
+    },
+    "/zustand": {
+      "title": "🧬 Quản lý Trạng thái (Zustand)",
+      "description": "Quản lý trạng thái ứng dụng với Zustand."
+    },
+    "/i18n": {
+      "title": "🌐 Hỗ trợ i18n",
+      "description": "Hỗ trợ đa ngôn ngữ với react-i18next."
+    },
+    "/virtual-list": {
+      "title": "⚡ Danh sách Ảo hóa",
+      "description": "Danh sách hiệu suất cao với 10k+ mục."
+    }
+  }
+}

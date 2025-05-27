@@ -1,0 +1,50 @@
+{
+  "home": {
+    "title": "Feature Showcase Hub",
+    "description": "Discover React features I've built throughout my learning journey.",
+    "viewDetail": "View Details",
+    "footer": "🚀 My jouney learning with React and TailwindCSS"
+  },
+  "features": {
+    "/todo": {
+      "title": "📝 Todo App",
+      "description": "Manage tasks with full CRUD functionality."
+    },
+    "/upload": {
+      "title": "⬆️ Chunk File Upload",
+      "description": "Upload large files with drag & drop and progress tracking."
+    },
+    "/form": {
+      "title": "📬 Form Validation",
+      "description": "Validate forms using React Hook Form and Yup."
+    },
+    "/charts": {
+      "title": "📊 Chart Dashboard",
+      "description": "Display charts using Recharts library."
+    },
+    "/hooks": {
+      "title": "🧠 Custom Hook Library",
+      "description": "Create reusable custom hooks library."
+    },
+    "/debounce-throttle": {
+      "title": "🔁 Debounce & Throttle",
+      "description": "Optimize input handling and event processing."
+    },
+    "/modal-manager": {
+      "title": "🧭 Modal Manager (Portal)",
+      "description": "Display dynamic modals using React Portal."
+    },
+    "/zustand": {
+      "title": "🧬 State Management (Zustand)",
+      "description": "Manage application state with Zustand."
+    },
+    "/i18n": {
+      "title": "🌐 i18n Support",
+      "description": "Multi-language support with react-i18next."
+    },
+    "/virtual-list": {
+      "title": "⚡ Virtualized List",
+      "description": "High-performance list with 10k+ items."
+    }
+  }
+}
