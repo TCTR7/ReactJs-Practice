@@ -9,31 +9,9 @@
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useState, useEffect } from "react";
-
-const schema = yup.object().shape({
-  fullName: yup
-    .string()
-    .required("Full name is required")
-    .min(2, "At least 2 characters"),
-  email: yup
-    .string()
-    .required("Email is required")
-    .email("Invalid email format"),
-  password: yup
-    .string()
-    .required("Password is required")
-    .min(6, "Minimum 6 characters"),
-  age: yup
-    .number()
-    .transform((v) => (isNaN(v) ? undefined : v))
-    .min(18, "Must be at least 18 years old")
-    .max(100, "Must be less than 100 years old")
-    .nullable(),
-  gender: yup.string().required("Please select your gender"),
-  terms: yup.boolean().oneOf([true], "You must accept the terms"),
-});
+import FormInput from "../components/FormInput";
+import schema from "../schemas/formSchema"; // Importing the validation schema
 
 export default function FormValidation() {
   const [submittedData, setSubmittedData] = useState(null);
@@ -70,55 +48,34 @@ export default function FormValidation() {
     <div className="min-h-screen bg-white p-6 max-w-xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">📬 Form Validation</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div>
-          <label htmlFor="fullName" className="block font-medium">
-            Full Name
-          </label>
-          <input
-            id="fullName"
-            {...register("fullName")}
-            className="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-          <p className="text-red-500 text-sm">{errors.fullName?.message}</p>
-        </div>
+        <FormInput
+          label={"Full Name"}
+          register={register}
+          name="fullName"
+          errors={errors}
+        />
+        <FormInput
+          label={"Email"}
+          register={register}
+          name="email"
+          errors={errors}
+        />
 
-        <div>
-          <label htmlFor="email" className="block font-medium">
-            Email
-          </label>
-          <input
-            id="email"
-            {...register("email")}
-            className="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-          <p className="text-red-500 text-sm">{errors.email?.message}</p>
-        </div>
+        <FormInput
+          label={"Password"}
+          register={register}
+          name="password"
+          type="password"
+          errors={errors}
+        />
 
-        <div>
-          <label htmlFor="password" className="block font-medium">
-            Password
-          </label>
-          <input
-            id="password"
-            type="password"
-            {...register("password")}
-            className="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-          <p className="text-red-500 text-sm">{errors.password?.message}</p>
-        </div>
-
-        <div>
-          <label htmlFor="age" className="block font-medium">
-            Age
-          </label>
-          <input
-            id="age"
-            type="number"
-            {...register("age")}
-            className="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-          <p className="text-red-500 text-sm">{errors.age?.message}</p>
-        </div>
+        <FormInput
+          label={"Age"}
+          register={register}
+          name="age"
+          type="number"
+          errors={errors}
+        />
 
         <div>
           <label htmlFor="gender" className="block font-medium">
