@@ -10,7 +10,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState, useEffect } from "react";
-import FormInput from "../components/FormInput";
+import FormInput from "../components/FormInputValidation";
 import schema from "../schemas/formSchema"; // Importing the validation schema
 
 export default function FormValidation() {
