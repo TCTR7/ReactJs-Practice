@@ -45,6 +45,10 @@
     "/virtual-list": {
       "title": "⚡ Danh sách Ảo hóa",
       "description": "Danh sách hiệu suất cao với 10k+ mục."
+    },
+    "/toast": {
+      "title": "🍞 Thông báo Toast",
+      "description": "Hiển thị thông báo toast với kiểu dáng tùy chỉnh."
     }
   }
 }

@@ -59,4 +59,10 @@ export const features = [
     description: "Danh sách 10k+ dòng hiệu suất cao.",
     path: "/virtual-list",
   },
+  {
+    title: "🔔 Toast Notifications",
+    level: "Lead",
+    description: "Thông báo toast với hiệu ứng đẹp.",
+    path: "/toast",
+  }
 ];

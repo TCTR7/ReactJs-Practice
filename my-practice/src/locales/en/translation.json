@@ -45,6 +45,10 @@
     "/virtual-list": {
       "title": "⚡ Virtualized List",
       "description": "High-performance list with 10k+ items."
+    },
+    "/toast": {
+      "title": "🍞 Toast Notifications",
+      "description": "Display toast notifications with custom styles."
     }
   }
 }
