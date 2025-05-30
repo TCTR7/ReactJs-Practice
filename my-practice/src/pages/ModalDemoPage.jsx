@@ -21,30 +21,32 @@ export default function ModalDemoPage() {
   };
 
   return (
-    <div className="p-6 gap-4 bg-white flex flex-col items-center justify-center">
-      <h1 className="text-xl font-bold mb-4">🧭 Modal Manager</h1>
-      <select
-        className="border border-gray-300 rounded p-2 mb-4 w-full sm:w-auto"
-        value={modalType || ""}
-        onChange={(e) => setModalType(e.target.value.toUpperCase())}
-      >
-        <option value="">SELECT MODAL TYPE</option>
-        {Object.values(MODAL_DATA).map((modal) => (
-          <option key={modal.type} value={modal.type}>
-            {modal.type.replace("_", " ").toUpperCase()}
-          </option>
-        ))}
-      </select>
-      <button
-        onClick={showModal}
-        className={
-          "bg-blue-600 text-white px-4 py-2 rounded w-full sm:w-auto hover:bg-blue-800 hover:cursor-pointer transition-colors duration-200" +
-          (modalType ? "" : " opacity-50 cursor-not-allowed")
-        }
-        disabled={!modalType}
-      >
-        Open Modal
-      </button>
+    <div className="p-6 gap-4 bg-white w-100 sm:w-150 md:w-200 duration-500 mx-auto">
+      <div className="flex flex-col items-center justify-center w-full">
+        <h1 className="text-xl font-bold mb-4">🧭 Modal Manager</h1>
+        <select
+          className="border border-gray-300 rounded p-2 mb-4 w-full"
+          value={modalType || ""}
+          onChange={(e) => setModalType(e.target.value.toUpperCase())}
+        >
+          <option value="">SELECT MODAL TYPE</option>
+          {Object.values(MODAL_DATA).map((modal) => (
+            <option key={modal.type} value={modal.type}>
+              {modal.type.replace("_", " ").toUpperCase()}
+            </option>
+          ))}
+        </select>
+        <button
+          onClick={showModal}
+          className={
+            "bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-800 hover:cursor-pointer transition-colors duration-200" +
+            (modalType ? "" : " opacity-50 cursor-not-allowed")
+          }
+          disabled={!modalType}
+        >
+          Open Modal
+        </button>
+      </div>
     </div>
   );
 }

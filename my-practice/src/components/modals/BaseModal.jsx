@@ -17,7 +17,7 @@ export default function BaseModal({ title, children, onClose }) {
   useEscKey(onClose);
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 w-full bg-black/50 flex items-center justify-center">
       <div
         ref={dialogRef}
         className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md animate-fade-in"
