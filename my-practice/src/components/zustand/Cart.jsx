@@ -30,8 +30,13 @@ export default function Cart() {
           </thead>
           <tbody>
             {items.map((item) => (
-              <tr key={item.id} className="hover:bg-gray-50 border border-solid text-center">
-                <td className="p-2 border-b border border-solid">{item.name}</td>
+              <tr
+                key={item.id}
+                className="hover:bg-gray-50 border border-solid text-center"
+              >
+                <td className="p-2 border-b border border-solid">
+                  {item.name}
+                </td>
                 <td className="p-2 border-b border border-solid">
                   ${item.price.toFixed(2)}
                 </td>

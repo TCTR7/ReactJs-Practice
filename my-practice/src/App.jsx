@@ -9,6 +9,7 @@ import ToastDemoPage from "./pages/ToastDemoPage";
 import FileUploadPage from "./pages/FileUploadPage";
 import ChartDashboardPage from "./pages/ChartDashboardPage";
 import ZustandPage from "./pages/ZustandPage";
+import VirtualizedListPage from "./pages/VirtualizedListPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path="/upload" element={<FileUploadPage />} />
       <Route path="/charts" element={<ChartDashboardPage />} />
       <Route path="/zustand" element={<ZustandPage />} />
+      <Route path="/virtual-list" element={<VirtualizedListPage />} />
       {/* Add more routes as needed */}
     </Routes>
   );
