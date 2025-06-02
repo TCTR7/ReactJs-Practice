@@ -1,12 +1,14 @@
 // App.jsx
 import { Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import FormValidation from "./pages/FormValidation";
 import DebounceThrottle from "./pages/DebounceThrottle";
 import HooksShowcase from "./pages/HooksShowcase";
 import ModalDemoPage from "./pages/ModalDemoPage";
 import ToastDemoPage from "./pages/ToastDemoPage";
 import FileUploadPage from "./pages/FileUploadPage";
+import ChartDashboardPage from "./pages/ChartDashboardPage";
+import ZustandPage from "./pages/ZustandPage";
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
       <Route path="/modal-manager" element={<ModalDemoPage />} />
       <Route path="/toast" element={<ToastDemoPage />} />
       <Route path="/upload" element={<FileUploadPage />} />
+      <Route path="/charts" element={<ChartDashboardPage />} />
+      <Route path="/zustand" element={<ZustandPage />} />
+      {/* Add more routes as needed */}
     </Routes>
   );
 }

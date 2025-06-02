@@ -29,6 +29,9 @@ export default function Home() {
               <p className="whitespace-nowrap truncate text-slate-600 mb-3 text-sm">
                 {t(`features.${feature.path}.description`)}
               </p>
+              <p className="whitespace-nowrap truncate text-slate-600 mb-3 text-sm">
+                Level: {feature.level}
+              </p>
               <Link
                 to={feature.path}
                 className="text-blue-600 hover:text-blue-800 transition-colors duration-300"

@@ -9,7 +9,6 @@ export default function ModalDemoPage() {
   const showModal = () => {
     console.log("Opening modal of type:", modalType);
     if (!modalType || !MODAL_DATA[modalType]) {
-      console.error("Invalid modal type:", modalType);
       return;
     }
     console.log("Modal data:", MODAL_DATA[modalType]);

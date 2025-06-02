@@ -4,7 +4,6 @@ import {MODAL_COMPONENTS} from "../../../data/modalData";
 
 
 export default function ModalRoot({ modalType, props, onClose }) {
-  console.log("ModalRoot rendered with modal:", modalType);
   // If no modal is provided, return null
   if (!modalType) return null;
 
