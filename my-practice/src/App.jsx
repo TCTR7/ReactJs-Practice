@@ -10,6 +10,7 @@ import FileUploadPage from "./pages/FileUploadPage";
 import ChartDashboardPage from "./pages/ChartDashboardPage";
 import ZustandPage from "./pages/ZustandPage";
 import VirtualizedListPage from "./pages/VirtualizedListPage";
+import TodoPage from "./pages/TodoPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path="/charts" element={<ChartDashboardPage />} />
       <Route path="/zustand" element={<ZustandPage />} />
       <Route path="/virtual-list" element={<VirtualizedListPage />} />
+      <Route path="/todo" element={<TodoPage />} />
       {/* Add more routes as needed */}
     </Routes>
   );
