@@ -50,5 +50,13 @@
       "title": "🍞 Thông báo Toast",
       "description": "Hiển thị thông báo toast với kiểu dáng tùy chỉnh."
     }
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi. Vui lòng thử lại sau.",
+    "notFound": "Không tìm thấy trang",
+    "goBack": "Quay lại",
+    "welcome": "Chào mừng đến với Trình chuyển đổi Ngôn ngữ",
+    "description": "Bạn có thể chuyển đổi giữa các ngôn ngữ!"
   }
 }

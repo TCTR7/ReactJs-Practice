@@ -50,5 +50,13 @@
       "title": "🍞 Toast Notifications",
       "description": "Display toast notifications with custom styles."
     }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred. Please try again later.",
+    "notFound": "Page not found",
+    "goBack": "Go Back",
+    "welcome": "Welcome to the Language Switcher",
+    "description": "You can now switch between languages!"
   }
 }

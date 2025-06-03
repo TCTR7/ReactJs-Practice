@@ -11,6 +11,7 @@ import ChartDashboardPage from "./pages/ChartDashboardPage";
 import ZustandPage from "./pages/ZustandPage";
 import VirtualizedListPage from "./pages/VirtualizedListPage";
 import TodoPage from "./pages/TodoPage";
+import LanguagePage from "./pages/LanguagePage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route path="/zustand" element={<ZustandPage />} />
       <Route path="/virtual-list" element={<VirtualizedListPage />} />
       <Route path="/todo" element={<TodoPage />} />
+      <Route path="/i18n" element={<LanguagePage />} />
       {/* Add more routes as needed */}
     </Routes>
   );
