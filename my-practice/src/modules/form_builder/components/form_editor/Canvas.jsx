@@ -24,7 +24,7 @@ export default function Canvas() {
       case "number":
         return <NumberField />;
       case "select":
-        return <SelectField />;
+        return <SelectField options={field.options}/>;
       default:
         return null;
     }

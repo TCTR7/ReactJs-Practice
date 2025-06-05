@@ -3,7 +3,6 @@ import { useDraggable } from "@dnd-kit/core"
 
 export default function FieldItem({ type }) {
   const { attributes, listeners, setNodeRef } = useDraggable({ id: type });
-  console.log("FieldTypes rendered with type:", type);
   return (
     <div
       ref={setNodeRef}

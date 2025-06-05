@@ -2,7 +2,7 @@ import { useFormBuilderStore } from "../stores/useFormBuilderStore";
 import { DndContext } from "@dnd-kit/core";
 import SideBar from "../components/form_editor/SideBar";
 import Canvas from "../components/form_editor/Canvas";
-import FieldEditModal from "../components/FieldEditModal";
+import FieldEditModal from "../components/modals/FieldEditModal";
 
 export default function FormBuilderPage() {
   const addField = useFormBuilderStore((state) => state.addField);

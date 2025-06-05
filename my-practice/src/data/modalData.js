@@ -12,6 +12,6 @@ export const MODAL_COMPONENTS = {
   [MODAL_DATA.CONFIRM.type]: React.lazy(() => import('../components/modals/ConfirmModal')),
   [MODAL_DATA.CONFIRM_DELETE.type]: React.lazy(() => import('../components/modals/ConfirmDeleteModal')),
   [MODAL_DATA.INFORMATION.type]: React.lazy(() => import('../components/modals/InfoModal')),
-  [MODAL_DATA.FIELD_EDITOR.type]: React.lazy(() => import('../modules/form_builder/components/FieldEditModal')),
+  [MODAL_DATA.FIELD_EDITOR.type]: React.lazy(() => import('../modules/form_builder/components/modals/FieldEditModal')),
 };
 export default { MODAL_DATA, MODAL_COMPONENTS };
