@@ -49,6 +49,10 @@
     "/toast": {
       "title": "🍞 Thông báo Toast",
       "description": "Hiển thị thông báo toast với kiểu dáng tùy chỉnh."
+    },
+    "/form-builder": {
+      "title": "🛠️ Trình tạo Biểu mẫu",
+      "description": "Tạo biểu mẫu động với giao diện kéo và thả."
     }
   },
   "common": {

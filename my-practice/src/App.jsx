@@ -12,6 +12,7 @@ import ZustandPage from "./pages/ZustandPage";
 import VirtualizedListPage from "./pages/VirtualizedListPage";
 import TodoPage from "./pages/TodoPage";
 import LanguagePage from "./pages/LanguagePage";
+import FormBuilderPage from "./modules/form_builder/pages/FormBuilderPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Route path="/virtual-list" element={<VirtualizedListPage />} />
       <Route path="/todo" element={<TodoPage />} />
       <Route path="/i18n" element={<LanguagePage />} />
+      <Route path="/form-builder" element={<FormBuilderPage />} />
       {/* Add more routes as needed */}
     </Routes>
   );

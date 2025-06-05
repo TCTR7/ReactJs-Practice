@@ -64,5 +64,11 @@ export const features = [
     level: "Lead",
     description: "Thông báo toast với hiệu ứng đẹp.",
     path: "/toast",
+  },
+  {
+    title: "📬 Form Builder",
+    level: "Lead",
+    description: "Tạo biểu mẫu động với các trường tùy chỉnh.",
+    path: "/form-builder",
   }
 ];

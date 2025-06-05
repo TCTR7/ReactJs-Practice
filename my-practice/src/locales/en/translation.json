@@ -49,6 +49,10 @@
     "/toast": {
       "title": "🍞 Toast Notifications",
       "description": "Display toast notifications with custom styles."
+    },
+    "/form-builder": {
+      "title": "🛠️ Form Builder",
+      "description": "Create dynamic forms with a drag-and-drop interface."
     }
   },
   "common": {

@@ -1,7 +1,7 @@
 //Problems with Zustand and React
 // Zustand's selectors and re-render
 // Zustand recommends using optimal selectors to reduce re-renders:
-// Selectors should return simple values ​​or stable references.
+// Selectors should return simple values stable references.
 // Avoid returning new objects/arrays on each render, as they make Zustand think the state has changed.
 // Use memoization techniques like useMemo or useCallback to ensure stable references.
 // Zustand's shallow comparison
