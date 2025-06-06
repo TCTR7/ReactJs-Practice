@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useFormBuilderStore } from "../../stores/useFormBuilderStore";
 import { useModal } from "../../../../components/modals/modal_manager/ModalContext";
 import { MODAL_DATA } from "../../../../data/modalData";
@@ -9,33 +9,24 @@ import CheckBoxModalItem from "./modal_items/CheckBoxModalItem";
 import LabelModalItem from "./modal_items/LabelModalItem";
 
 export default function FieldEditModal({ onClose }) {
-  const fields = useFormBuilderStore((state) => state.fields);
-  const updateField = useFormBuilderStore((state) => state.updateField);
-  const selectedFieldId = useFormBuilderStore((state) => state.selectedFieldId);
-  const deselectField = useFormBuilderStore((state) => state.deselectField);
+  const { fields, updateField, selectedFieldId, deselectField } =
+    useFormBuilderStore();
   const { closeModal } = useModal();
 
   const selectedField = fields.find((field) => field.id === selectedFieldId);
 
-  const [labelModalItemValue, setLabelModalItemValue] = useState(
-    selectedField ? selectedField.placeholder : ""
-  );
-  const [textModalItemValue, setTextModalItemValue] = useState(
-    selectedField ? selectedField.placeholder : ""
-  );
+  // Move all hooks above any conditional returns
+  const [labelModalItemValue, setLabelModalItemValue] = useState("");
+  const [textModalItemValue, setTextModalItemValue] = useState("");
   const [selectModalItemOptionValue, setSelectModalItemOptionValue] = useState(
-    selectedField ? selectedField.options || [] : []
+    []
   );
-  const [checkboxModalItemValue, setCheckboxModalItemValue] = useState(
-    selectedField ? selectedField.required || false : false
-  );
-
-  if (!selectedField) return null;
+  const [checkboxModalItemValue, setCheckboxModalItemValue] = useState(false);
 
   function handleSave() {
     const newField = {};
     if (selectModalItemOptionValue) {
-      newField.options = selectModalItemOptionValue.map((line) => line.trim()).filter(Boolean);
+      newField.options = selectModalItemOptionValue;
     }
     if (labelModalItemValue) {
       newField.label = labelModalItemValue;
@@ -50,10 +41,34 @@ export default function FieldEditModal({ onClose }) {
     handleClose();
   }
 
+  function resetModalValues() {
+    setLabelModalItemValue("");
+    setTextModalItemValue("");
+    setSelectModalItemOptionValue([]);
+    setCheckboxModalItemValue(false);
+  }
+
   function handleClose() {
     deselectField();
     closeModal(MODAL_DATA.FIELD_EDITOR);
+    resetModalValues();
   }
+
+  useEffect(() => {
+    if (!selectedField) {
+      // Early return nếu không có selectedField
+      return;
+    }
+    setLabelModalItemValue(selectedField.label);
+    setTextModalItemValue(selectedField.placeholder);
+    setSelectModalItemOptionValue(selectedField.options);
+    setCheckboxModalItemValue(selectedField.required);
+    return () => {
+      resetModalValues();
+    };
+  }, [selectedField]);
+
+  if (!selectedField) return null;
 
   return (
     <BaseModal title="Edit Field" onClose={onClose}>
@@ -70,11 +85,8 @@ export default function FieldEditModal({ onClose }) {
         )}
         {selectedField.type === "select" && (
           <SelectModalItem
-            value={selectModalItemOptionValue}
-            onSelectModalItemChange={(e) => {
-              const lines = e.target.value.split("\n");
-              setSelectModalItemOptionValue(lines);
-            }}
+            options={selectModalItemOptionValue}
+            onSelectModalItemChange={setSelectModalItemOptionValue}
           />
         )}
         <CheckBoxModalItem

@@ -9,9 +9,8 @@ export default function FormBuilderPage() {
 
   function handleDragEnd(event) {
     const { over, active } = event;
-    if (over.id === "canvas") {
-      addField(active.id);
-    }
+    if (!active || !over || over.id !== "canvas") return;
+    addField(active.id);
   }
   return (
     <DndContext onDragEnd={handleDragEnd}>

@@ -10,6 +10,7 @@ export const useFormBuilderStore = create((set) => ({
       label: `${type[0].toUpperCase() + type.slice(1)} Field`,
       placeholder: "",
       required: false,
+      options: [],
     };
     set((state) => ({
       fields: [...state.fields, newField],
@@ -20,6 +21,7 @@ export const useFormBuilderStore = create((set) => ({
   updateField: (id, updates) =>
     set((state) => ({
       fields: state.fields.map((field) => {
+        console.log("Updating field:", field, "with updates:", updates);
         if (field.id === id) {
           return { ...field, ...updates };
         }

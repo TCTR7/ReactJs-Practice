@@ -4,6 +4,10 @@
   @apply w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500;
 }
 
+.field-item:active {
+  transform: scale(0.98); /* Hiệu ứng nhấn */
+}
+
 @layer utilities {
   /* Slide-in from right */
   @keyframes slide-in-right {
@@ -37,3 +41,4 @@
     animation: fade-in 0.2s ease-out both;
   }
 }
+

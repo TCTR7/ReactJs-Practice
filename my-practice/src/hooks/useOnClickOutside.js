@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 export function useOnClickOutside(ref, handler) {
     useEffect(() => {
         const listerner = (event) => {
-            console.log('useOnClickOutside', event);
             // Check if the click is outside the referenced element
             if (!ref.current || ref.current.contains(event.target)) {
                 return;
