@@ -7,8 +7,8 @@ import RadioField from "./RadioField";
 import CheckboxField from "./CheckboxField";
 import NumberField from "./NumberField";
 import SelectField from "./SelectField";
+import EmailField from "./EmailField";
 export default function CanvasSortableField({ field, id }) {
-  console.log("CanvasSortableField field:", field);
   const { selectField, deleteField } = useFormBuilderStore();
   const {
     attributes,
@@ -30,13 +30,14 @@ export default function CanvasSortableField({ field, id }) {
       case "text":
         return <TextField placeholder={field.placeholder} />;
       case "radio":
-        return <RadioField />;
+        return <RadioField options={field.options} />;
       case "checkbox":
-        return <CheckboxField />;
+        return <CheckboxField label={field.label} />;
       case "number":
-        return <NumberField />;
+        return <NumberField placeholder={field.placeholder} />;
+      case "email":
+        return <EmailField placeholder={field.placeholder} />;
       case "select":
-        console.log("SelectField options:", field.options);
         return <SelectField options={field.options} />;
       default:
         return null;
@@ -54,8 +55,12 @@ export default function CanvasSortableField({ field, id }) {
         style={style}
         className="p-1 bg-gray-100 rounded border border-gray-300"
       >
-        <div className="flex items-center my-1">
-          <div {...attributes} {...listeners} className="cursor-move mr-1 border-r pr-2">
+        <div className="flex items-stretch my-1">
+          <div
+            {...attributes}
+            {...listeners}
+            className="cursor-move flex items-center mr-1 border-r pr-2"
+          >
             <GripVertical className="h-20 w-8 text-gray-500" />
           </div>
           <div className="flex-1 p-1">

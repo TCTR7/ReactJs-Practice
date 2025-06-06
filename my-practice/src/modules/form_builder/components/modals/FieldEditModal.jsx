@@ -7,6 +7,10 @@ import TextModalItem from "./modal_items/TextModalItem";
 import SelectModalItem from "./modal_items/SelectModalItem";
 import CheckBoxModalItem from "./modal_items/CheckBoxModalItem";
 import LabelModalItem from "./modal_items/LabelModalItem";
+import RadioModalItem from "./modal_items/RadioModalItem";
+import NumberModalItem from "./modal_items/NumberModalItem";
+import EmailModalItem from "./modal_items/EmailModalItem";
+
 
 export default function FieldEditModal({ onClose }) {
   const { fields, updateField, selectedFieldId, deselectField } =
@@ -22,6 +26,9 @@ export default function FieldEditModal({ onClose }) {
     []
   );
   const [checkboxModalItemValue, setCheckboxModalItemValue] = useState(false);
+  const [numberModalItemValue, setNumberModalItemValue] = useState("");
+  const [emailModalItemValue, setEmailModalItemValue] = useState("");
+  const [radioModalItemOptions, setRadioModalItemOptions] = useState([]);
 
   function handleSave() {
     const newField = {};
@@ -37,6 +44,15 @@ export default function FieldEditModal({ onClose }) {
     if (checkboxModalItemValue) {
       newField.required = checkboxModalItemValue;
     }
+    if (numberModalItemValue) {
+      newField.placeholder = numberModalItemValue;
+    }
+    if (emailModalItemValue) {
+      newField.placeholder = emailModalItemValue;
+    }
+    if (radioModalItemOptions.length) {
+      newField.options = radioModalItemOptions;
+    }
     updateField(selectedFieldId, newField);
     handleClose();
   }
@@ -46,12 +62,75 @@ export default function FieldEditModal({ onClose }) {
     setTextModalItemValue("");
     setSelectModalItemOptionValue([]);
     setCheckboxModalItemValue(false);
+    setNumberModalItemValue("");
+    setEmailModalItemValue("");
+    setRadioModalItemOptions([]);
   }
 
   function handleClose() {
     deselectField();
     closeModal(MODAL_DATA.FIELD_EDITOR);
     resetModalValues();
+  }
+
+  function getModalItem(fieldType) {
+    switch (fieldType) {
+      case "text":
+        return (
+          <TextModalItem
+            value={textModalItemValue}
+            onTextModalItemChange={(e) => setTextModalItemValue(e.target.value)}
+          />
+        );
+      case "select":
+        return (
+          <SelectModalItem
+            options={selectModalItemOptionValue}
+            onSelectModalItemChange={setSelectModalItemOptionValue}
+          />
+        );
+      case "checkbox":
+        return (
+          <CheckBoxModalItem
+            checked={checkboxModalItemValue}
+            onCheckboxModalItemChange={(e) =>
+              setCheckboxModalItemValue(e.target.checked)
+            }
+          />
+        );
+      case "label":
+        return (
+          <LabelModalItem
+            value={labelModalItemValue}
+            onLabelModalItemChange={(e) =>
+              setLabelModalItemValue(e.target.value)
+            }
+          />
+        );
+      case "radio":
+        return (
+          <RadioModalItem
+            options={radioModalItemOptions}
+            onRadioModalItemChange={setRadioModalItemOptions}
+          />
+        );
+      case "number":
+        return (
+          <NumberModalItem
+            value={numberModalItemValue}
+            onTextModalItemChange={(e) => setNumberModalItemValue(e.target.value)}
+          />
+        );
+      case "email":
+        return (
+          <EmailModalItem
+            value={emailModalItemValue}
+            onTextModalItemChange={(e) => setEmailModalItemValue(e.target.value)}
+          />
+        );
+      default:
+        return null;
+    }
   }
 
   useEffect(() => {
@@ -63,6 +142,10 @@ export default function FieldEditModal({ onClose }) {
     setTextModalItemValue(selectedField.placeholder);
     setSelectModalItemOptionValue(selectedField.options);
     setCheckboxModalItemValue(selectedField.required);
+    setNumberModalItemValue(selectedField.placeholder);
+    setEmailModalItemValue(selectedField.placeholder);
+    setRadioModalItemOptions(selectedField.options || []);
+
     return () => {
       resetModalValues();
     };
@@ -77,24 +160,7 @@ export default function FieldEditModal({ onClose }) {
           value={labelModalItemValue}
           onLabelModalItemChange={(e) => setLabelModalItemValue(e.target.value)}
         />
-        {selectedField.type === "text" && (
-          <TextModalItem
-            value={textModalItemValue}
-            onTextModalItemChange={(e) => setTextModalItemValue(e.target.value)}
-          />
-        )}
-        {selectedField.type === "select" && (
-          <SelectModalItem
-            options={selectModalItemOptionValue}
-            onSelectModalItemChange={setSelectModalItemOptionValue}
-          />
-        )}
-        <CheckBoxModalItem
-          checked={checkboxModalItemValue}
-          onCheckboxModalItemChange={(e) =>
-            setCheckboxModalItemValue(e.target.checked)
-          }
-        />
+        {getModalItem(selectedField.type)}
       </div>
       <div className="mt-6 text-right space-x-2">
         <button

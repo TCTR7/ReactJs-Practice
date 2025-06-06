@@ -48,7 +48,6 @@ export default function SelectOptionsDragDropAbleContainer({
   }
 
   const removeOption = (index) => {
-    console.log("Removing option at index:", index);
     const updatedOptions = [...(options || [])];
     updatedOptions.splice(index, 1);
     onChangeHandler(updatedOptions);

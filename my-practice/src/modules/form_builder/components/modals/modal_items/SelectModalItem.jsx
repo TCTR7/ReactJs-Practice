@@ -2,14 +2,14 @@ import SelectOptionsDragDropAbleContainer from "../SelectOptionsDragDropAbleCont
 
 export default function SelectModalItem({ options, onSelectModalItemChange }) {
   function addOption() {
-    const newOption = { label: "New Option", value: `option_${Date.now()}` };
+    const newOption = { label: "Select Option", value: `option_${Date.now()}` };
     const updatedOptions = [...(options || []), newOption];
     onSelectModalItemChange(updatedOptions);
   }
 
   return (
     <div>
-      <label className="block font-medium mb-1">
+      <label className="block font-medium mb-2">
         Options (one line - one option)
       </label>
       <button

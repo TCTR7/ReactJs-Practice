@@ -21,7 +21,6 @@ export const useFormBuilderStore = create((set) => ({
   updateField: (id, updates) =>
     set((state) => ({
       fields: state.fields.map((field) => {
-        console.log("Updating field:", field, "with updates:", updates);
         if (field.id === id) {
           return { ...field, ...updates };
         }
@@ -32,6 +31,6 @@ export const useFormBuilderStore = create((set) => ({
   deleteField: (id) =>
     set((state) => ({
       fields: state.fields.filter((field) => field.id !== id),
-      selectedFieldId: null
+      selectedFieldId: null,
     })),
 }));

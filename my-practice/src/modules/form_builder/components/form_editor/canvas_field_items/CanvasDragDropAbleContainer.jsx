@@ -16,8 +16,7 @@ import CanvasSortableField from "./CanvasSortableField";
 import { useFormBuilderStore } from "../../../stores/useFormBuilderStore";
 
 export default function CanvasDragDropAbleContainer() {
-  const { updateField, fields } = useFormBuilderStore();
-  console.log("CanvasDragDropAbleContainer fields:", fields);
+  const { setField, fields } = useFormBuilderStore();
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
@@ -34,7 +33,7 @@ export default function CanvasDragDropAbleContainer() {
 
     if (oldIndex !== -1 && newIndex !== -1 && oldIndex !== newIndex) {
       const updatedFields = arrayMove(fields, oldIndex, newIndex);
-      updateField(updatedFields);
+      setField(updatedFields);
     }
   }
 
