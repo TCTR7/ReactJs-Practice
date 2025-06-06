@@ -1,7 +1,7 @@
 import React from "react";
 import { useDroppable } from "@dnd-kit/core";
 import { useFormBuilderStore } from "../../stores/useFormBuilderStore";
-import CanvasFieldItemContainer from "./canvas_field_items/CanvasFieldItemContainer";
+import CanvasDragDropAbleContainer from "./canvas_field_items/CanvasDragDropAbleContainer";
 
 export default function Canvas() {
   const fields = useFormBuilderStore((state) => state.fields);
@@ -20,7 +20,7 @@ export default function Canvas() {
       {fields.length === 0 && (
         <p className="text-gray-400">Pull file into here</p>
       )}
-      <CanvasFieldItemContainer />
+      <CanvasDragDropAbleContainer />
     </div>
   );
 }
