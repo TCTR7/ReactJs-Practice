@@ -48,33 +48,40 @@ export default function SelectOptionsDragDropAbleContainer({
   }
 
   const removeOption = (index) => {
+    console.log("Removing option at index:", index);
     const updatedOptions = [...(options || [])];
     updatedOptions.splice(index, 1);
     onChangeHandler(updatedOptions);
   };
   return (
-    <DndContext
-      sensors={sensors}
-      collisionDetection={closestCenter}
-      onDragEnd={handleDragEnd}
-    >
-      <SortableContext
-        items={options.map((option) => option.value)}
-        strategy={verticalListSortingStrategy}
+    <div className="max-h-80 overflow-y-auto">
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}
       >
-        {options.map((option, index) => {
-          return (
-            <SortableOption
-              key={option.value}
-              id={option.value}
-              index={index}
-              option={option}
-              onUpdate={updateOption}
-              onRemove={() => removeOption(index)}
-            />
-          );
-        })}
-      </SortableContext>
-    </DndContext>
+        <SortableContext
+          items={options.map((option) => option.value)}
+          strategy={verticalListSortingStrategy}
+        >
+        {// if use key={option.value} here,
+        // the second input will have a bug that it alway rerender when you type because you change the option's value everytime you type
+        // If change the key={option.lable}, the first input will have the same bug
+        // chang the key to index will fix the bug
+          options.map((option, index) => {
+            return (
+              <SortableOption
+                key={index}
+                id={option.value}
+                index={index}
+                option={option}
+                onUpdate={updateOption}
+                onRemove={() => removeOption(index)}
+              />
+            );
+          })}
+        </SortableContext>
+      </DndContext>
+    </div>
   );
 }

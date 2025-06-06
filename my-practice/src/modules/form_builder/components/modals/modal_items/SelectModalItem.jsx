@@ -4,7 +4,6 @@ export default function SelectModalItem({ options, onSelectModalItemChange }) {
   function addOption() {
     const newOption = { label: "New Option", value: `option_${Date.now()}` };
     const updatedOptions = [...(options || []), newOption];
-    console.log("Adding new option:", newOption);
     onSelectModalItemChange(updatedOptions);
   }
 
@@ -25,9 +24,9 @@ export default function SelectModalItem({ options, onSelectModalItemChange }) {
         <span className="font-medium">Actions</span>
       </div>
       <SelectOptionsDragDropAbleContainer
-        options={options}
-        onChangeHandler={onSelectModalItemChange}
-      />
+          options={options}
+          onChangeHandler={onSelectModalItemChange}
+        />
     </div>
   );
 }
