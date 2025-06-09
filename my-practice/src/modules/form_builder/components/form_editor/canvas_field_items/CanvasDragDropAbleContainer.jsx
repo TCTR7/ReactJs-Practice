@@ -14,6 +14,7 @@ import {
 } from "@dnd-kit/sortable";
 import CanvasSortableField from "./CanvasSortableField";
 import { useFormBuilderStore } from "../../../stores/useFormBuilderStore";
+import FormToolBar from "../FormToolBar";
 
 export default function CanvasDragDropAbleContainer() {
   const { setField, fields } = useFormBuilderStore();
@@ -38,21 +39,24 @@ export default function CanvasDragDropAbleContainer() {
   }
 
   return (
-    <div className="space-y-3 overflow-y-auto">
-      <DndContext
-        sensors={sensors}
-        collisionDetection={closestCenter}
-        onDragEnd={handleDragEnd}
-      >
-        <SortableContext
-          items={fields.map((field) => field.id)}
-          strategy={verticalListSortingStrategy}
+    <div className="flex flex-col justify-between h-full p-4">
+      <div className="space-y-3 overflow-y-auto mb-5">
+        <DndContext
+          sensors={sensors}
+          collisionDetection={closestCenter}
+          onDragEnd={handleDragEnd}
         >
-          {fields.map((field, index) => (
-            <CanvasSortableField key={index} field={field} id={field.id} />
-          ))}
-        </SortableContext>
-      </DndContext>
+          <SortableContext
+            items={fields.map((field) => field.id)}
+            strategy={verticalListSortingStrategy}
+          >
+            {fields.map((field, index) => (
+              <CanvasSortableField key={index} field={field} id={field.id} />
+            ))}
+          </SortableContext>
+        </DndContext>
+      </div>
+      <FormToolBar />
     </div>
   );
 }

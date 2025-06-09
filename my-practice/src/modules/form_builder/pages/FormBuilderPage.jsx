@@ -14,7 +14,7 @@ export default function FormBuilderPage() {
   }
   return (
     <DndContext onDragEnd={handleDragEnd}>
-      <div className="flex h-screen">
+      <div className="flex h-screen overflow-hidden py-4">
         <SideBar />
         <Canvas />
         <FieldEditModal />

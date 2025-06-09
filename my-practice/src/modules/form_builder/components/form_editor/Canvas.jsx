@@ -3,6 +3,7 @@ import { useDroppable } from "@dnd-kit/core";
 import { useFormBuilderStore } from "../../stores/useFormBuilderStore";
 import CanvasDragDropAbleContainer from "./canvas_field_items/CanvasDragDropAbleContainer";
 
+
 export default function Canvas() {
   const fields = useFormBuilderStore((state) => state.fields);
   const { isOver, setNodeRef } = useDroppable({ id: "canvas" });
@@ -14,7 +15,7 @@ export default function Canvas() {
         isOver ? "bg-green-50 border-green-400" : "bg-white"
       }`}
     >
-      <h2 className="font-bold mb-4 text-base sm:text-xl md:text-2xl lg:text-3xl duration-500">
+      <h2 className="font-bold mb-2 text-base sm:text-xl md:text-2xl lg:text-3xl duration-500">
         Form Canvas
       </h2>
       {fields.length === 0 && (
