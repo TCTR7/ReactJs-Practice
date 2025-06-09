@@ -12,7 +12,7 @@ export default function FormToolBar() {
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = "form_fields.json";
+    a.download = `form_fields_${Date.now()}.json`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
